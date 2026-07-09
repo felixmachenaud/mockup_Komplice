@@ -1,0 +1,47 @@
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.lang-switcher--desktop {
+  margin-right: 0;
+}
+
+.lang-switcher--mobile {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lang-switcher__btn {
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.55;
+  padding: 0.25rem 0.4rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.lang-switcher__btn:hover,
+.lang-switcher__btn.is-active {
+  opacity: 1;
+}
+
+.lang-switcher__btn.is-active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1100px) {
+  .lang-switcher--desktop {
+    display: none;
+  }
+}

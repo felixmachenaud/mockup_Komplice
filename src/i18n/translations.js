@@ -1,0 +1,495 @@
+const menuSectionsFr = {
+  lunch: {
+    id: 'lunch',
+    label: 'Menu du déjeuner',
+    shortLabel: 'Déjeuner',
+    subtitle: 'Du mardi au samedi · 12h00 — 14h30',
+    sections: [
+      {
+        title: 'Les Entrées',
+        items: [
+          { name: 'Œufs durs, mayonnaise/wasabi/œufs de saumon', price: '13€' },
+          { name: 'Ceviche de daurade, agrumes, guacamole, sauce ponzu', price: '21€' },
+          { name: 'Cèleri rémoulade, pommes Granny Smith, poutargue', price: '15€' },
+          { name: 'Velouté butternut & potimarron, crème d\'Isigny', price: '13€' },
+        ],
+      },
+      {
+        title: 'Les Plats',
+        items: [
+          { name: 'Tartare de bœuf Charolais au couteau, frites maison', price: '27€' },
+          { name: 'Faux-filet de bœuf Charolais, sauce chimichurri, frites maison', price: '31€' },
+          { name: 'Suprême de volaille, purée de maïs, trompettes DLM, jus de viande', price: '28€' },
+          { name: 'Colin snacké, tombée de champignons taillés et en velouté', price: '28€' },
+          { name: 'Pavé de cabillaud rôti, légumes façon wok, sauce teriyaki', price: '27€' },
+        ],
+      },
+      {
+        title: 'Finale salée / sucrée',
+        items: [
+          { name: 'Assiette de fromage', price: '18€' },
+          { name: 'Cheesecake au citron vert', price: '12€' },
+          { name: 'Glaces et sorbet — 3 boules', price: '13€' },
+          { name: 'Moelleux chocolat, cœur coulant & glace vanille de Madagascar', price: '17€' },
+          { name: 'Café gourmand', price: '14€' },
+        ],
+      },
+    ],
+    footer: 'Prix nets en euros, service et toutes taxes comprises.',
+  },
+  dinner: {
+    id: 'dinner',
+    label: 'Menu du soir',
+    shortLabel: 'Soir',
+    subtitle: 'Du mardi au samedi · 19h00 — 22h30',
+    sections: [
+      {
+        title: 'Les Entrées',
+        items: [
+          { name: 'Œufs durs, mayonnaise/wasabi/œufs de saumon', price: '13€' },
+          { name: 'Ceviche de daurade, agrumes, guacamole, sauce ponzu', price: '21€' },
+          { name: 'Cèleri rémoulade, pommes Granny Smith, poutargue', price: '15€' },
+          { name: 'Velouté butternut & potimarron, crème d\'Isigny', price: '13€' },
+          { name: 'Terrine de foie de volaille maison & pickles', price: '16€' },
+          { name: 'Assiette de charcuterie', price: '18€' },
+        ],
+      },
+      {
+        title: 'Les Plats',
+        items: [
+          { name: 'Tartare de bœuf Charolais au couteau, frites maison', price: '27€' },
+          { name: 'Faux-filet de bœuf Charolais, sauce chimichurri, frites maison', price: '31€' },
+          { name: 'Suprême de volaille, purée de maïs, trompettes DLM, jus de viande', price: '28€' },
+          { name: 'Colin snacké, tombée de champignons taillés et en velouté', price: '28€' },
+          { name: 'Pavé de cabillaud rôti, légumes façon wok, sauce teriyaki', price: '27€' },
+        ],
+      },
+      {
+        title: 'Finale salée / sucrée',
+        items: [
+          { name: 'Assiette de fromage', price: '18€' },
+          { name: 'Cheesecake au citron vert', price: '12€' },
+          { name: 'Glaces et sorbet — 3 boules', price: '13€' },
+          { name: 'Moelleux chocolat, cœur coulant & glace vanille de Madagascar', price: '17€' },
+        ],
+      },
+    ],
+    footer: 'Prix nets en euros, service et toutes taxes comprises.',
+  },
+}
+
+const shared = {
+  booking: {
+    title: 'Réserver une table',
+    guests: (n) => (n === 1 ? '1 personne' : `${n} personnes`),
+    reserve: 'Réserver',
+    date: 'Date',
+    time: 'Horaire',
+    guestsLabel: 'Nombre de personnes',
+  },
+  menuPanel: {
+    eyebrow: 'La Carte',
+    close: 'Fermer',
+    download: 'Télécharger le PDF',
+  },
+  dish: {
+    ingredients: 'Ingrédients',
+    allergens: 'Allergènes',
+  },
+  labels: {
+    address: 'Adresse',
+    phone: 'Téléphone',
+    hours: 'Horaires',
+    instagram: 'Instagram',
+    legal: 'Mentions légales',
+  },
+  openingHours: ['Mardi — Samedi', '12h00 — 14h30', '19h00 — 22h30'],
+}
+
+export const defaultLang = 'fr'
+
+export const languages = [
+  { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'EN' },
+  { code: 'es', label: 'ES' },
+  { code: 'it', label: 'IT' },
+  { code: 'zh', label: '中文' },
+  { code: 'de', label: 'DE' },
+]
+
+export const translations = {
+  fr: {
+    ...shared,
+    nav: { carte: 'La Carte', restaurant: 'Le Restaurant', about: 'À propos', reserve: 'Réserver' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['Une cuisine sincère.', 'Des produits choisis.', 'Une table à partager.'],
+      description: 'Une cuisine vivante et généreuse, imaginée autour du produit, des saisons et du plaisir d\'être ensemble.',
+    },
+    marquee: ['PARIS', 'CUISINE DE SAISON', 'PRODUITS FRAIS', 'DÉJEUNER', 'DÎNER', 'RÉSERVATION CONSEILLÉE', 'TERRASSE'],
+    dishes: [
+      {
+        category: 'Poisson',
+        name: 'Saint-Jacques',
+        subtitle: 'de plongée',
+        description: 'Saint-Jacques rôties, beurre noisette, céleri-rave et agrumes.',
+        ingredients: ['Saint-Jacques', 'Céleri-rave', 'Beurre noisette', 'Agrumes'],
+        allergens: 'Lactose · Mollusques',
+      },
+      {
+        category: 'Viande',
+        name: 'Agneau',
+        subtitle: 'de Sisteron',
+        description: 'Carré d\'agneau rôti, jus au thym citronné, légumes de saison.',
+        ingredients: ['Agneau de Sisteron', 'Thym citronné', 'Légumes de saison', 'Jus court'],
+        allergens: 'À compléter',
+      },
+      {
+        category: 'Dessert',
+        name: 'Tarte',
+        subtitle: 'aux agrumes',
+        description: 'Pâte sablée croustillante, crème légère et zestes confits.',
+        ingredients: ['Agrumes de Sicile', 'Crème légère', 'Pâte sablée', 'Zestes confits'],
+        allergens: 'Gluten · Lactose · Œufs',
+      },
+    ],
+    menuCta: {
+      title: 'La Carte',
+      subtitle: 'Une cuisine qui évolue\nau fil des saisons.',
+      cta: 'Découvrir le menu',
+    },
+    restaurant: {
+      title: 'Le Restaurant',
+      lines: ['Un lieu vivant.', 'Une cuisine sincère.', 'Des Komplices autour d\'une même table.'],
+      description: 'Au cœur de Paris, Les Komplices accueille ses convives dans un cadre chaleureux où chaque détail a été pensé pour sublimer le moment partagé.',
+    },
+    reservation: {
+      title: ['Une table', 'vous attend.'],
+      cta: 'Réserver maintenant',
+    },
+    menus: menuSectionsFr,
+    mobileMenu: { lunch: 'Menu du déjeuner', dinner: 'Menu du soir' },
+  },
+
+  en: {
+    ...shared,
+    nav: { carte: 'Menu', restaurant: 'The Restaurant', about: 'About', reserve: 'Book' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['Honest cuisine.', 'Carefully chosen produce.', 'A table to share.'],
+      description: 'A vibrant, generous cuisine built around quality ingredients, the seasons, and the joy of gathering together.',
+    },
+    marquee: ['PARIS', 'SEASONAL CUISINE', 'FRESH PRODUCE', 'LUNCH', 'DINNER', 'RESERVATION RECOMMENDED', 'TERRACE'],
+    dishes: [
+      {
+        category: 'Fish',
+        name: 'Scallops',
+        subtitle: 'diving catch',
+        description: 'Pan-seared scallops, brown butter, celeriac and citrus.',
+        ingredients: ['Scallops', 'Celeriac', 'Brown butter', 'Citrus'],
+        allergens: 'Dairy · Molluscs',
+      },
+      {
+        category: 'Meat',
+        name: 'Lamb',
+        subtitle: 'from Sisteron',
+        description: 'Roasted rack of lamb, lemon thyme jus, seasonal vegetables.',
+        ingredients: ['Sisteron lamb', 'Lemon thyme', 'Seasonal vegetables', 'Reduced jus'],
+        allergens: 'To be confirmed',
+      },
+      {
+        category: 'Dessert',
+        name: 'Tart',
+        subtitle: 'with citrus',
+        description: 'Crisp shortcrust, light cream and candied zest.',
+        ingredients: ['Sicilian citrus', 'Light cream', 'Shortcrust pastry', 'Candied zest'],
+        allergens: 'Gluten · Dairy · Eggs',
+      },
+    ],
+    menuCta: {
+      title: 'The Menu',
+      subtitle: 'A cuisine that evolves\nwith the seasons.',
+      cta: 'Discover the menu',
+    },
+    restaurant: {
+      title: 'The Restaurant',
+      lines: ['A living place.', 'Honest cuisine.', 'Komplices around the same table.'],
+      description: 'In the heart of Paris, Les Komplices welcomes guests in a warm setting where every detail is designed to elevate the shared moment.',
+    },
+    reservation: {
+      title: ['A table', 'awaits you.'],
+      cta: 'Book now',
+    },
+    menus: {
+      lunch: {
+        ...menuSectionsFr.lunch,
+        label: 'Lunch menu',
+        shortLabel: 'Lunch',
+        subtitle: 'Tuesday to Saturday · 12:00 — 14:30',
+        sections: [
+          { title: 'Starters', items: menuSectionsFr.lunch.sections[0].items.map((i) => ({ ...i, name: i.name })) },
+          { title: 'Main courses', items: menuSectionsFr.lunch.sections[1].items },
+          { title: 'Savory / Sweet finale', items: menuSectionsFr.lunch.sections[2].items },
+        ],
+        footer: 'All prices in euros, service and taxes included.',
+      },
+      dinner: {
+        ...menuSectionsFr.dinner,
+        label: 'Dinner menu',
+        shortLabel: 'Dinner',
+        subtitle: 'Tuesday to Saturday · 19:00 — 22:30',
+        sections: [
+          { title: 'Starters', items: menuSectionsFr.dinner.sections[0].items },
+          { title: 'Main courses', items: menuSectionsFr.dinner.sections[1].items },
+          { title: 'Savory / Sweet finale', items: menuSectionsFr.dinner.sections[2].items },
+        ],
+        footer: 'All prices in euros, service and taxes included.',
+      },
+    },
+    booking: {
+      title: 'Book a table',
+      guests: (n) => (n === 1 ? '1 guest' : `${n} guests`),
+      reserve: 'Book',
+      date: 'Date',
+      time: 'Time',
+      guestsLabel: 'Number of guests',
+    },
+    menuPanel: { eyebrow: 'The Menu', close: 'Close', download: 'Download PDF' },
+    dish: { ingredients: 'Ingredients', allergens: 'Allergens' },
+    labels: { address: 'Address', phone: 'Phone', hours: 'Hours', instagram: 'Instagram', legal: 'Legal notice' },
+    openingHours: ['Tuesday — Saturday', '12:00 — 14:30', '19:00 — 22:30'],
+    mobileMenu: { lunch: 'Lunch menu', dinner: 'Dinner menu' },
+  },
+
+  es: {
+    ...shared,
+    nav: { carte: 'La Carta', restaurant: 'El Restaurante', about: 'Acerca de', reserve: 'Reservar' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['Una cocina sincera.', 'Productos seleccionados.', 'Una mesa para compartir.'],
+      description: 'Una cocina viva y generosa, imaginada en torno al producto, las estaciones y el placer de estar juntos.',
+    },
+    marquee: ['PARÍS', 'COCINA DE TEMPORADA', 'PRODUCTOS FRESCOS', 'ALMUERZO', 'CENA', 'RESERVA RECOMENDADA', 'TERRAZA'],
+    dishes: [
+      {
+        category: 'Pescado',
+        name: 'Vieiras',
+        subtitle: 'de buceo',
+        description: 'Vieiras salteadas, mantequilla noisette, apionabo y cítricos.',
+        ingredients: ['Vieiras', 'Apionabo', 'Mantequilla noisette', 'Cítricos'],
+        allergens: 'Lácteos · Moluscos',
+      },
+      {
+        category: 'Carne',
+        name: 'Cordero',
+        subtitle: 'de Sisteron',
+        description: 'Carré de cordero asado, jugo de tomillo limón, verduras de temporada.',
+        ingredients: ['Cordero de Sisteron', 'Tomillo limón', 'Verduras de temporada', 'Jugo corto'],
+        allergens: 'Por confirmar',
+      },
+      {
+        category: 'Postre',
+        name: 'Tarta',
+        subtitle: 'de cítricos',
+        description: 'Masa quebrada crujiente, crema ligera y ralladura confitada.',
+        ingredients: ['Cítricos de Sicilia', 'Crema ligera', 'Masa quebrada', 'Ralladura confitada'],
+        allergens: 'Gluten · Lácteos · Huevos',
+      },
+    ],
+    menuCta: {
+      title: 'La Carta',
+      subtitle: 'Una cocina que evoluciona\ncon las estaciones.',
+      cta: 'Descubrir la carta',
+    },
+    restaurant: {
+      title: 'El Restaurante',
+      lines: ['Un lugar vivo.', 'Una cocina sincera.', 'Komplices alrededor de la misma mesa.'],
+      description: 'En el corazón de París, Les Komplices recibe a sus comensales en un marco cálido donde cada detalle está pensado para sublimar el momento compartido.',
+    },
+    reservation: { title: ['Una mesa', 'le espera.'], cta: 'Reservar ahora' },
+    menus: {
+      lunch: { ...menuSectionsFr.lunch, label: 'Menú del almuerzo', shortLabel: 'Almuerzo', subtitle: 'De martes a sábado · 12:00 — 14:30', footer: 'Precios en euros, servicio e impuestos incluidos.' },
+      dinner: { ...menuSectionsFr.dinner, label: 'Menú de la cena', shortLabel: 'Cena', subtitle: 'De martes a sábado · 19:00 — 22:30', footer: 'Precios en euros, servicio e impuestos incluidos.' },
+    },
+    booking: { title: 'Reservar una mesa', guests: (n) => (n === 1 ? '1 persona' : `${n} personas`), reserve: 'Reservar', date: 'Fecha', time: 'Hora', guestsLabel: 'Número de personas' },
+    menuPanel: { eyebrow: 'La Carta', close: 'Cerrar', download: 'Descargar PDF' },
+    dish: { ingredients: 'Ingredientes', allergens: 'Alérgenos' },
+    labels: { address: 'Dirección', phone: 'Teléfono', hours: 'Horario', instagram: 'Instagram', legal: 'Aviso legal' },
+    openingHours: ['Martes — Sábado', '12:00 — 14:30', '19:00 — 22:30'],
+    mobileMenu: { lunch: 'Menú del almuerzo', dinner: 'Menú de la cena' },
+  },
+
+  it: {
+    ...shared,
+    nav: { carte: 'Il Menu', restaurant: 'Il Ristorante', about: 'Chi siamo', reserve: 'Prenota' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['Una cucina sincera.', 'Prodotti scelti.', 'Un tavolo da condividere.'],
+      description: 'Una cucina viva e generosa, immaginata attorno al prodotto, alle stagioni e al piacere di stare insieme.',
+    },
+    marquee: ['PARIGI', 'CUCINA DI STAGIONE', 'PRODOTTI FRESCHI', 'PRANZO', 'CENA', 'PRENOTAZIONE CONSIGLIATA', 'TERRAZZA'],
+    dishes: [
+      {
+        category: 'Pesce',
+        name: 'Capesante',
+        subtitle: 'da immersione',
+        description: 'Capesante rosolate, burro nocciola, sedano rapa e agrumi.',
+        ingredients: ['Capesante', 'Sedano rapa', 'Burro nocciola', 'Agrumi'],
+        allergens: 'Latticini · Molluschi',
+      },
+      {
+        category: 'Carne',
+        name: 'Agnello',
+        subtitle: 'di Sisteron',
+        description: 'Carré di agnello arrosto, jus al timo limone, verdure di stagione.',
+        ingredients: ['Agnello di Sisteron', 'Timo limone', 'Verdure di stagione', 'Jus ristretto'],
+        allergens: 'Da confermare',
+      },
+      {
+        category: 'Dessert',
+        name: 'Torta',
+        subtitle: 'agli agrumi',
+        description: 'Frolla croccante, crema leggera e scorze candite.',
+        ingredients: ['Agrumi di Sicilia', 'Crema leggera', 'Pasta frolla', 'Scorze candite'],
+        allergens: 'Glutine · Latticini · Uova',
+      },
+    ],
+    menuCta: {
+      title: 'Il Menu',
+      subtitle: 'Una cucina che evolve\ncon le stagioni.',
+      cta: 'Scopri il menu',
+    },
+    restaurant: {
+      title: 'Il Ristorante',
+      lines: ['Un luogo vivo.', 'Una cucina sincera.', 'Komplices attorno allo stesso tavolo.'],
+      description: 'Nel cuore di Parigi, Les Komplices accoglie gli ospiti in un ambiente caloroso dove ogni dettaglio è pensato per esaltare il momento condiviso.',
+    },
+    reservation: { title: ['Un tavolo', 'vi aspetta.'], cta: 'Prenota ora' },
+    menus: {
+      lunch: { ...menuSectionsFr.lunch, label: 'Menu del pranzo', shortLabel: 'Pranzo', subtitle: 'Da martedì a sabato · 12:00 — 14:30', footer: 'Prezzi in euro, servizio e tasse incluse.' },
+      dinner: { ...menuSectionsFr.dinner, label: 'Menu della cena', shortLabel: 'Cena', subtitle: 'Da martedì a sabato · 19:00 — 22:30', footer: 'Prezzi in euro, servizio e tasse incluse.' },
+    },
+    booking: { title: 'Prenota un tavolo', guests: (n) => (n === 1 ? '1 persona' : `${n} persone`), reserve: 'Prenota', date: 'Data', time: 'Orario', guestsLabel: 'Numero di persone' },
+    menuPanel: { eyebrow: 'Il Menu', close: 'Chiudi', download: 'Scarica PDF' },
+    dish: { ingredients: 'Ingredienti', allergens: 'Allergeni' },
+    labels: { address: 'Indirizzo', phone: 'Telefono', hours: 'Orari', instagram: 'Instagram', legal: 'Note legali' },
+    openingHours: ['Martedì — Sabato', '12:00 — 14:30', '19:00 — 22:30'],
+    mobileMenu: { lunch: 'Menu del pranzo', dinner: 'Menu della cena' },
+  },
+
+  zh: {
+    ...shared,
+    nav: { carte: '菜单', restaurant: '餐厅', about: '关于', reserve: '预订' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['真诚的料理。', '精选食材。', '共享一桌。'],
+      description: '以食材、季节与相聚之乐为核心的鲜活而慷慨的料理。',
+    },
+    marquee: ['巴黎', '时令料理', '新鲜食材', '午餐', '晚餐', '建议预订', '露台'],
+    dishes: [
+      {
+        category: '鱼类',
+        name: '扇贝',
+        subtitle: '潜水捕捞',
+        description: '香煎扇贝、榛果黄油、芹菜根与柑橘。',
+        ingredients: ['扇贝', '芹菜根', '榛果黄油', '柑橘'],
+        allergens: '乳制品 · 软体动物',
+      },
+      {
+        category: '肉类',
+        name: '羊肉',
+        subtitle: ' Sisteron',
+        description: '烤羊排、柠檬百里香汁、时令蔬菜。',
+        ingredients: ['Sisteron羊肉', '柠檬百里香', '时令蔬菜', '浓缩肉汁'],
+        allergens: '待确认',
+      },
+      {
+        category: '甜品',
+        name: '塔派',
+        subtitle: '柑橘',
+        description: '酥脆挞皮、轻盈奶油与糖渍果皮。',
+        ingredients: ['西西里柑橘', '轻盈奶油', '酥皮', '糖渍果皮'],
+        allergens: '麸质 · 乳制品 · 鸡蛋',
+      },
+    ],
+    menuCta: {
+      title: '菜单',
+      subtitle: '随季节演变的\n料理。',
+      cta: '查看菜单',
+    },
+    restaurant: {
+      title: '餐厅',
+      lines: ['充满活力的空间。', '真诚的料理。', 'Komplices 共聚一桌。'],
+      description: '在巴黎中心，Les Komplices 以温暖的环境迎接宾客，每个细节都为升华共享时刻而设计。',
+    },
+    reservation: { title: ['一张餐桌', '恭候您的光临。'], cta: '立即预订' },
+    menus: {
+      lunch: { ...menuSectionsFr.lunch, label: '午餐菜单', shortLabel: '午餐', subtitle: '周二至周六 · 12:00 — 14:30', footer: '价格为欧元净价，含服务费与税费。' },
+      dinner: { ...menuSectionsFr.dinner, label: '晚餐菜单', shortLabel: '晚餐', subtitle: '周二至周六 · 19:00 — 22:30', footer: '价格为欧元净价，含服务费与税费。' },
+    },
+    booking: { title: '预订餐桌', guests: (n) => (n === 1 ? '1 位' : `${n} 位`), reserve: '预订', date: '日期', time: '时间', guestsLabel: '人数' },
+    menuPanel: { eyebrow: '菜单', close: '关闭', download: '下载 PDF' },
+    dish: { ingredients: '食材', allergens: '过敏原' },
+    labels: { address: '地址', phone: '电话', hours: '营业时间', instagram: 'Instagram', legal: '法律声明' },
+    openingHours: ['周二 — 周六', '12:00 — 14:30', '19:00 — 22:30'],
+    mobileMenu: { lunch: '午餐菜单', dinner: '晚餐菜单' },
+  },
+
+  de: {
+    ...shared,
+    nav: { carte: 'Speisekarte', restaurant: 'Das Restaurant', about: 'Über uns', reserve: 'Reservieren' },
+    intro: {
+      label: 'Les Komplices',
+      lines: ['Ehrliche Küche.', 'Ausgewählte Produkte.', 'Ein Tisch zum Teilen.'],
+      description: 'Eine lebendige, großzügige Küche rund um Produkt, Jahreszeiten und die Freude am Zusammensein.',
+    },
+    marquee: ['PARIS', 'SAISONALE KÜCHE', 'FRISCHE PRODUKTE', 'MITTAGESSEN', 'ABENDESSEN', 'RESERVIERUNG EMPFOHLEN', 'TERRASSE'],
+    dishes: [
+      {
+        category: 'Fisch',
+        name: 'Jakobsmuscheln',
+        subtitle: 'Taucherfang',
+        description: 'Gebratene Jakobsmuscheln, Nussbutter, Sellerie und Zitrus.',
+        ingredients: ['Jakobsmuscheln', 'Sellerie', 'Nussbutter', 'Zitrus'],
+        allergens: 'Milch · Weichtiere',
+      },
+      {
+        category: 'Fleisch',
+        name: 'Lamm',
+        subtitle: 'aus Sisteron',
+        description: 'Gebratenes Lammkarree, Zitronenthymian-Jus, Saisongemüse.',
+        ingredients: ['Sisteron-Lamm', 'Zitronenthymian', 'Saisongemüse', 'Jus'],
+        allergens: 'Noch zu ergänzen',
+      },
+      {
+        category: 'Dessert',
+        name: 'Tarte',
+        subtitle: 'mit Zitrus',
+        description: 'Knuspriger Mürbeteig, leichte Creme und kandierte Schale.',
+        ingredients: ['Sizilianische Zitrus', 'Leichte Creme', 'Mürbeteig', 'Kandierte Schale'],
+        allergens: 'Gluten · Milch · Eier',
+      },
+    ],
+    menuCta: {
+      title: 'Die Speisekarte',
+      subtitle: 'Eine Küche, die sich\nmit den Jahreszeiten wandelt.',
+      cta: 'Speisekarte entdecken',
+    },
+    restaurant: {
+      title: 'Das Restaurant',
+      lines: ['Ein lebendiger Ort.', 'Ehrliche Küche.', 'Komplices am selben Tisch.'],
+      description: 'Im Herzen von Paris empfängt Les Komplices seine Gäste in einem warmen Ambiente, in dem jedes Detail den gemeinsamen Moment veredelt.',
+    },
+    reservation: { title: ['Ein Tisch', 'wartet auf Sie.'], cta: 'Jetzt reservieren' },
+    menus: {
+      lunch: { ...menuSectionsFr.lunch, label: 'Mittagsmenü', shortLabel: 'Mittag', subtitle: 'Dienstag bis Samstag · 12:00 — 14:30', footer: 'Preise in Euro, Service und Steuern inbegriffen.' },
+      dinner: { ...menuSectionsFr.dinner, label: 'Abendmenü', shortLabel: 'Abend', subtitle: 'Dienstag bis Samstag · 19:00 — 22:30', footer: 'Preise in Euro, Service und Steuern inbegriffen.' },
+    },
+    booking: { title: 'Tisch reservieren', guests: (n) => (n === 1 ? '1 Person' : `${n} Personen`), reserve: 'Reservieren', date: 'Datum', time: 'Uhrzeit', guestsLabel: 'Anzahl Personen' },
+    menuPanel: { eyebrow: 'Speisekarte', close: 'Schließen', download: 'PDF herunterladen' },
+    dish: { ingredients: 'Zutaten', allergens: 'Allergene' },
+    labels: { address: 'Adresse', phone: 'Telefon', hours: 'Öffnungszeiten', instagram: 'Instagram', legal: 'Impressum' },
+    openingHours: ['Dienstag — Samstag', '12:00 — 14:30', '19:00 — 22:30'],
+    mobileMenu: { lunch: 'Mittagsmenü', dinner: 'Abendmenü' },
+  },
+}

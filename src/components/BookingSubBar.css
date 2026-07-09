@@ -1,0 +1,185 @@
+.booking-subbar__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.booking-subbar {
+  position: relative;
+  z-index: 99;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out);
+}
+
+.booking-subbar.is-open {
+  max-height: 160px;
+}
+
+.booking-subbar__inner {
+  margin: 0.75rem auto 1rem;
+  background: var(--surface);
+  border: 1px solid rgba(23, 19, 15, 0.08);
+  border-radius: 20px;
+  padding: clamp(1.25rem, 2.5vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 24px 48px rgba(23, 19, 15, 0.12),
+    0 8px 20px rgba(23, 19, 15, 0.06),
+    0 2px 4px rgba(23, 19, 15, 0.04);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  transition:
+    opacity 0.4s var(--ease-out) 0.08s,
+    transform 0.45s var(--ease-out) 0.08s;
+}
+
+.booking-subbar.is-open .booking-subbar__inner {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.booking-subbar__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0) 45%
+  );
+  pointer-events: none;
+}
+
+.booking-subbar__inner {
+  position: relative;
+}
+
+.booking-subbar__label {
+  position: relative;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.booking-subbar__fields {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+.booking-subbar__field {
+  flex: 1;
+  min-width: 120px;
+}
+
+.booking-subbar__select,
+.booking-subbar__input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.booking-subbar__input::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.booking-subbar__divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.booking-subbar__btn {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  background: var(--text);
+  color: var(--background);
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(23, 19, 15, 0.18);
+  transition:
+    background 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.booking-subbar__btn:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(113, 31, 31, 0.28);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .booking-subbar.is-open {
+    max-height: 320px;
+  }
+
+  .booking-subbar__inner {
+    margin: 0.5rem 1rem 0.75rem;
+    border-radius: 16px;
+    padding: 1.25rem;
+  }
+
+  .booking-subbar__fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .booking-subbar__divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .booking-subbar__btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.25rem;
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-subbar,
+  .booking-subbar__inner {
+    transition: none;
+  }
+
+  .booking-subbar.is-open .booking-subbar__inner {
+    opacity: 1;
+    transform: none;
+  }
+}

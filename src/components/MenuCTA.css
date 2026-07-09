@@ -1,0 +1,20 @@
+.menu-cta {
+  padding: var(--section-gap) 0;
+  text-align: center;
+}
+
+.menu-cta__label {
+  margin-bottom: 2rem;
+}
+
+.menu-cta__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.menu-cta__btn {
+  margin-inline: auto;
+}

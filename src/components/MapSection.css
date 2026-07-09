@@ -1,0 +1,20 @@
+.map-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  line-height: 0;
+}
+
+.map-section__iframe {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 42vw, 480px);
+  border: none;
+  filter: grayscale(20%) contrast(1.02);
+}
+
+@media (max-width: 768px) {
+  .map-section__iframe {
+    height: clamp(240px, 50vw, 360px);
+  }
+}

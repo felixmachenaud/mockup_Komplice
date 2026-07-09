@@ -1,0 +1,13 @@
+.main-content {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+main {
+  position: relative;
+}
+
+.dishes {
+  padding-top: clamp(2rem, 4vw, 4rem);
+}
