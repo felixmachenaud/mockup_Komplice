@@ -1,11 +1,12 @@
 import { restaurant } from '../data/restaurantData'
+import LogoMark from './LogoMark'
 import './Hero.css'
 
 export default function Hero({ scrollProgress }) {
   const imageScale = 1 + scrollProgress * 0.08
   const titleOpacity = 1 - scrollProgress * 1.4
   const titleY = scrollProgress * -60
-  const overlayOpacity = 0.25 + scrollProgress * 0.35
+  const overlayOpacity = 0.44 + scrollProgress * 0.35
 
   return (
     <section className="hero" aria-label="Accueil">
@@ -29,15 +30,16 @@ export default function Hero({ scrollProgress }) {
         </div>
 
         <div className="hero__content">
-          <h1
-            className="hero__title"
+          <div
+            className="hero__brand"
             style={{
               opacity: Math.max(titleOpacity, 0),
-              transform: `translateY(${titleY}px)`,
+              transform: `translateY(calc(-6vh + ${titleY}px))`,
             }}
           >
-            Les Komplices
-          </h1>
+            <h1 className="hero__title">Les Komplices</h1>
+            <LogoMark variant="hero" />
+          </div>
         </div>
       </div>
 

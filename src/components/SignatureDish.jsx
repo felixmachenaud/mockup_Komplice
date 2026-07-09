@@ -19,15 +19,23 @@ export default function SignatureDish({ dish, index }) {
   useEffect(() => {
     if (!parallaxRef.current) return
 
+    let ticking = false
+
     const onScroll = () => {
-      const el = parallaxRef.current
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const windowH = window.innerHeight
-      const center = rect.top + rect.height / 2
-      const offset = (center - windowH / 2) / windowH
-      const parallax = Math.max(Math.min(offset * 20, 20), -20)
-      el.style.transform = `translateY(${parallax}px)`
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const el = parallaxRef.current
+          if (!el) return
+          const rect = el.getBoundingClientRect()
+          const windowH = window.innerHeight
+          const center = rect.top + rect.height / 2
+          const offset = (center - windowH / 2) / windowH
+          const parallax = Math.max(Math.min(offset * 20, 20), -20)
+          el.style.transform = `translateY(${parallax}px)`
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })

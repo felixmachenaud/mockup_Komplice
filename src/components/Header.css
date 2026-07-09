@@ -26,7 +26,8 @@
 }
 
 .header--scrolled,
-.header--carte-open {
+.header--carte-open,
+.header--booking-open {
   height: 60px;
   background: rgba(246, 243, 236, 0.92);
   backdrop-filter: blur(12px);
@@ -35,7 +36,8 @@
   color: var(--text);
 }
 
-.header--carte-open {
+.header--carte-open,
+.header--booking-open {
   border-bottom-color: transparent;
 }
 
@@ -49,12 +51,19 @@
 }
 
 .header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
   font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   flex-shrink: 0;
   z-index: 2;
+}
+
+.header__logo-text {
+  line-height: 1;
 }
 
 .header__nav {
@@ -91,6 +100,7 @@
   font: inherit;
   cursor: pointer;
   padding: 0;
+  font-weight: 600;
 }
 
 .header__nav-btn.is-active,
@@ -226,7 +236,8 @@
 
 @media (max-width: 768px) {
   .header--scrolled,
-  .header--carte-open {
+  .header--carte-open,
+  .header--booking-open {
     height: var(--header-height);
   }
 }

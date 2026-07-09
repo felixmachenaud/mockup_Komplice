@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { restaurant } from '../data/restaurantData'
 import './ReservationSection.css'
 
-export default function ReservationSection() {
+export default function ReservationSection({ onOpenBooking }) {
   const { t } = useLanguage()
   const [ref, isInView] = useInView({ threshold: 0.15 })
 
@@ -29,10 +29,10 @@ export default function ReservationSection() {
           ))}
         </h2>
 
-        <a href={restaurant.bookingUrl} className="btn btn--accent reservation__cta">
+        <button type="button" className="btn btn--accent reservation__cta" onClick={onOpenBooking}>
           {t.reservation.cta}
           <span className="btn__arrow" aria-hidden="true">→</span>
-        </a>
+        </button>
 
         <div className="reservation__info">
           <p className="reservation__brand label">{restaurant.name}</p>

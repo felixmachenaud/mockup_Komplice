@@ -17,7 +17,8 @@
 }
 
 .menu-subbar.is-open {
-  max-height: 80px;
+  max-height: 96px;
+  padding-top: 0.875rem;
 }
 
 .menu-subbar__inner {
@@ -70,7 +71,8 @@
 
 @media (max-width: 768px) {
   .menu-subbar.is-open {
-    max-height: 88px;
+    max-height: 104px;
+    padding-top: 0.75rem;
   }
 
   .menu-subbar__inner {

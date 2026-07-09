@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext'
 import LanguageSwitcher from './LanguageSwitcher'
 import MenuSubBar from './MenuSubBar'
 import BookingSubBar from './BookingSubBar'
+import LogoMark from './LogoMark'
 import './Header.css'
 
 export default function Header({
@@ -21,7 +22,18 @@ export default function Header({
   const [mobileCarteOpen, setMobileCarteOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 60)
+    let ticking = false
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 60)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -59,7 +71,8 @@ export default function Header({
       <header className={headerClass}>
         <div className="header__inner container">
           <a href="#" className="header__logo" aria-label="Les Komplices — Accueil">
-            Les Komplices
+            <span className="header__logo-text">Les Komplices</span>
+            <LogoMark variant="header" />
           </a>
 
           <nav className="header__nav" aria-label="Navigation principale">

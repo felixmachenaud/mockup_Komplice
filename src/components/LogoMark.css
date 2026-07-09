@@ -1,0 +1,119 @@
+.logo-mark {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.logo-mark__svg,
+.logo-mark__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-mark__fill {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  background: transparent !important;
+  border: none;
+}
+
+.logo-mark__stroke {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.logo-mark--hero {
+  height: clamp(7.7rem, 22.4vw, 18.2rem);
+  aspect-ratio: 1018 / 940;
+  margin-top: clamp(1rem, 2.5vw, 2rem);
+}
+
+.logo-mark--header {
+  height: 39px;
+  aspect-ratio: 1018 / 940;
+}
+
+.logo-mark--header .logo-mark__fill {
+  filter: brightness(0);
+}
+
+.header--hero .logo-mark--header .logo-mark__fill {
+  filter: none;
+}
+
+.logo-mark--drawn .logo-mark__fill {
+  opacity: 1;
+}
+
+.logo-mark--drawn .logo-mark__stroke {
+  opacity: 0;
+}
+
+.logo-mark--animating .logo-mark__fill {
+  opacity: 0;
+  animation: logo-fill-in 0.55s ease forwards;
+  animation-delay: calc(var(--logo-draw-duration, 2800ms) - 0.35s);
+}
+
+.logo-mark--animating .logo-mark__stroke {
+  stroke-dasharray: var(--logo-path-length, 1);
+  stroke-dashoffset: var(--logo-path-length, 1);
+  animation:
+    logo-draw var(--logo-draw-duration, 2800ms) ease-in-out forwards,
+    logo-stroke-out 0.4s ease forwards;
+  animation-delay:
+    0s,
+    calc(var(--logo-draw-duration, 2800ms) - 0.15s);
+}
+
+@keyframes logo-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes logo-fill-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo-stroke-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-mark--header {
+    height: 34px;
+  }
+
+  .logo-mark--hero {
+    height: clamp(6.3rem, 30.8vw, 11.2rem);
+    margin-top: 0.875rem;
+  }
+
+  .logo-mark__stroke {
+    stroke-width: 18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-mark--animating .logo-mark__stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+
+  .logo-mark--animating .logo-mark__fill {
+    animation: none;
+    opacity: 1;
+  }
+}

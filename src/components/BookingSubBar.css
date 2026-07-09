@@ -16,11 +16,12 @@
 }
 
 .booking-subbar.is-open {
-  max-height: 160px;
+  max-height: 200px;
+  padding-top: 1.5rem;
 }
 
 .booking-subbar__inner {
-  margin: 0.75rem auto 1rem;
+  margin: 0.5rem auto 1.5rem;
   background: var(--surface);
   border: 1px solid rgba(23, 19, 15, 0.08);
   border-radius: 20px;
@@ -145,11 +146,12 @@
 
 @media (max-width: 768px) {
   .booking-subbar.is-open {
-    max-height: 320px;
+    max-height: 360px;
+    padding-top: 1.25rem;
   }
 
   .booking-subbar__inner {
-    margin: 0.5rem 1rem 0.75rem;
+    margin: 0.75rem 1rem 1.25rem;
     border-radius: 16px;
     padding: 1.25rem;
   }

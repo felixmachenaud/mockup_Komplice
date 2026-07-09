@@ -11,15 +11,12 @@ import ReservationSection from './components/ReservationSection'
 import Footer from './components/Footer'
 import MenuPanel from './components/MenuPanel'
 import PageBackground from './components/PageBackground'
-import { useScrollProgress } from './hooks/useInView'
-import { useScrollY } from './hooks/useScrollEffects'
+import { useScrollMotion } from './hooks/useScrollEffects'
 import { restaurant } from './data/restaurantData'
 import './App.css'
 
 export default function App() {
-  const scrollProgress = useScrollProgress()
-  const scrollY = useScrollY()
-  const bgOpacity = Math.min(Math.max((scrollProgress - 0.35) / 0.45, 0), 1)
+  const { progress: scrollProgress } = useScrollMotion()
   const [carteOpen, setCarteOpen] = useState(false)
   const [bookingOpen, setBookingOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState(null)
@@ -44,14 +41,21 @@ export default function App() {
   }
 
   const handleMenuClose = () => setActiveMenu(null)
+
   const handleOpenCarte = () => {
     setBookingOpen(false)
     setCarteOpen(true)
   }
 
+  const handleOpenBooking = () => {
+    setCarteOpen(false)
+    setBookingOpen(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <>
-      <PageBackground opacity={bgOpacity} scrollY={scrollY} />
+      <PageBackground />
 
       <Header
         scrollProgress={scrollProgress}
@@ -79,7 +83,7 @@ export default function App() {
           <MapSection />
           <MenuCTA onOpenCarte={handleOpenCarte} />
           <RestaurantGallery />
-          <ReservationSection />
+          <ReservationSection onOpenBooking={handleOpenBooking} />
         </div>
       </main>
 
