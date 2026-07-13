@@ -4,6 +4,12 @@ export const conversionFr = {
     line2: 'Le soir, la cave des Komplices.',
     ctaMenu: 'Voir nos cartes',
     ctaBook: 'Réserver',
+    reviewCount: '117 avis',
+  },
+  reviews: {
+    label: 'Avis',
+    title: 'Ce que disent nos convives',
+    count: '5 sur 5 · 117 avis',
   },
   concept: {
     title: 'Une adresse, deux moments.',
@@ -127,6 +133,12 @@ export const conversionEn = {
     line2: 'In the evening, the Komplices\' cellar.',
     ctaMenu: 'View the menus',
     ctaBook: 'Book a table',
+    reviewCount: '117 reviews',
+  },
+  reviews: {
+    label: 'Reviews',
+    title: 'What our guests say',
+    count: '5 out of 5 · 117 reviews',
   },
   concept: {
     title: 'One address, two moments.',

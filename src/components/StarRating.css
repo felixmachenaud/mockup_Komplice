@@ -1,0 +1,27 @@
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  line-height: 1;
+}
+
+.star-rating__star {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.star-rating--sm {
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.star-rating--md {
+  font-size: 0.875rem;
+  color: var(--accent);
+}
+
+.star-rating--lg {
+  font-size: 1rem;
+  color: var(--accent);
+}

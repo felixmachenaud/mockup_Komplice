@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import MomentSection from './components/MomentSection'
 import Marquee from './components/Marquee'
+import ReviewsSection from './components/ReviewsSection'
 import MapSection from './components/MapSection'
 import SignatureDish from './components/SignatureDish'
 import TeamSection from './components/TeamSection'
@@ -100,6 +101,7 @@ export default function App() {
             ))}
           </section>
           <MomentSection variant="evening" onOpenMenu={handleOpenMenu} />
+          <ReviewsSection />
           <MapSection />
           <TeamSection />
           <CellarSection onOpenCarte={handleOpenCarte} />

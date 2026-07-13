@@ -120,7 +120,7 @@ export const languages = [
 export const translations = {
   fr: {
     ...shared,
-    nav: { carte: 'La Carte', restaurant: 'Le Lieu', about: 'Le Concept', reserve: 'Réserver' },
+    nav: { carte: 'La Carte', restaurant: 'Le Lieu', about: 'Le Concept', avis: 'Avis', reserve: 'Réserver' },
     intro: {
       label: 'Les Komplices',
       lines: ['Une cuisine sincère.', 'Des produits choisis.', 'Une table à partager.'],
@@ -173,7 +173,7 @@ export const translations = {
 
   en: {
     ...shared,
-    nav: { carte: 'Menu', restaurant: 'The Place', about: 'The Concept', reserve: 'Book' },
+    nav: { carte: 'Menu', restaurant: 'The Place', about: 'The Concept', avis: 'Reviews', reserve: 'Book' },
     intro: {
       label: 'Les Komplices',
       lines: ['Honest cuisine.', 'Carefully chosen produce.', 'A table to share.'],
@@ -263,7 +263,7 @@ export const translations = {
 
   es: {
     ...shared,
-    nav: { carte: 'La Carta', restaurant: 'El Restaurante', about: 'Acerca de', reserve: 'Reservar' },
+    nav: { carte: 'La Carta', restaurant: 'El Restaurante', about: 'Acerca de', avis: 'Reseñas', reserve: 'Reservar' },
     intro: {
       label: 'Les Komplices',
       lines: ['Una cocina sincera.', 'Productos seleccionados.', 'Una mesa para compartir.'],
@@ -321,7 +321,7 @@ export const translations = {
 
   it: {
     ...shared,
-    nav: { carte: 'Il Menu', restaurant: 'Il Ristorante', about: 'Chi siamo', reserve: 'Prenota' },
+    nav: { carte: 'Il Menu', restaurant: 'Il Ristorante', about: 'Chi siamo', avis: 'Recensioni', reserve: 'Prenota' },
     intro: {
       label: 'Les Komplices',
       lines: ['Una cucina sincera.', 'Prodotti scelti.', 'Un tavolo da condividere.'],
@@ -379,7 +379,7 @@ export const translations = {
 
   zh: {
     ...shared,
-    nav: { carte: '菜单', restaurant: '餐厅', about: '关于', reserve: '预订' },
+    nav: { carte: '菜单', restaurant: '餐厅', about: '关于', avis: '评价', reserve: '预订' },
     intro: {
       label: 'Les Komplices',
       lines: ['真诚的料理。', '精选食材。', '共享一桌。'],
@@ -437,7 +437,7 @@ export const translations = {
 
   de: {
     ...shared,
-    nav: { carte: 'Speisekarte', restaurant: 'Das Restaurant', about: 'Über uns', reserve: 'Reservieren' },
+    nav: { carte: 'Speisekarte', restaurant: 'Das Restaurant', about: 'Über uns', avis: 'Bewertungen', reserve: 'Reservieren' },
     intro: {
       label: 'Les Komplices',
       lines: ['Ehrliche Küche.', 'Ausgewählte Produkte.', 'Ein Tisch zum Teilen.'],

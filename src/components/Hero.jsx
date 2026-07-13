@@ -1,5 +1,6 @@
 import { restaurant } from '../data/restaurantData'
 import LogoMark from './LogoMark'
+import StarRating from './StarRating'
 import { useLanguage } from '../context/LanguageContext'
 import { ContainerScroll } from './ui/ContainerScrollAnimation'
 import './Hero.css'
@@ -48,7 +49,14 @@ export default function Hero({ onOpenCarte, onOpenBooking }) {
             />
           </ContainerScroll>
 
-          <p className="hero__address">55 Rue des Mathurins, Paris</p>
+          <p className="hero__address">
+            55 Rue des Mathurins, Paris
+            <span className="hero__address-sep" aria-hidden="true"> — </span>
+            <a href="#avis" className="hero__reviews-link">
+              <StarRating size="sm" />
+              <span>{t.hero.reviewCount}</span>
+            </a>
+          </p>
         </div>
       </div>
     </section>

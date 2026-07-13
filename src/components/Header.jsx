@@ -80,6 +80,9 @@ export default function Header({
             <a href="#restaurant" className="nav-link">
               {t.nav.restaurant}
             </a>
+            <a href="#avis" className="nav-link">
+              {t.nav.avis}
+            </a>
           </nav>
 
           <div className="header__actions">
@@ -130,6 +133,13 @@ export default function Header({
             onClick={() => setMobileOpen(false)}
           >
             {t.nav.restaurant}
+          </a>
+          <a
+            href="#avis"
+            className="header__mobile-link"
+            onClick={() => setMobileOpen(false)}
+          >
+            {t.nav.avis}
           </a>
           <a
             href="#concept"
