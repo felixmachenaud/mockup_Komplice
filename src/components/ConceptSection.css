@@ -1,0 +1,27 @@
+.concept {
+  position: relative;
+  z-index: 1;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.concept__inner {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.concept__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.concept__body {
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+}

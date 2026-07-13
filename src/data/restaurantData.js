@@ -33,7 +33,7 @@ export const restaurant = {
     },
   },
 
-  heroImage: '/landing_page.jpeg',
+  heroImage: '/landing_page6.png',
   transitionImage: '/image3.jpeg',
 
   intro: {
@@ -120,23 +120,37 @@ export const restaurant = {
   },
 
   restaurant: {
-    title: 'Le Restaurant',
-    lines: [
-      'Un lieu vivant.',
-      'Une cuisine sincère.',
-      'Des Komplices autour d\'une même table.',
-    ],
+    title: 'Le Lieu',
+    lines: ['La salle le jour.', 'La cave le soir.', 'Une adresse qui se transforme.'],
     description:
-      'Au cœur de Paris, Les Komplices accueille ses convives dans un cadre chaleureux où chaque détail a été pensé pour sublimer le moment partagé.',
-    heroImage: '/image3.jpeg',
-    gallery: [
-      { src: '/landing_page.jpeg', alt: 'Salle du restaurant Les Komplices' },
-      { src: '/image1.jpeg', alt: 'Plat signature' },
-      { src: '/image2.jpeg', alt: 'Création du chef' },
-      { src: '/image3.jpeg', alt: 'Ambiance du restaurant' },
-      { src: '/image4.jpeg', alt: 'Les Komplices — détail' },
-      { src: '/image5.jpeg', alt: 'Les Komplices — ambiance' },
-      { src: '/image6.jpeg', alt: 'Les Komplices — cuisine' },
+      'Comptoir, tables, lumière du soir et bouteilles sélectionnées — chaque détail raconte ce que l\'on vit chez Les Komplices.',
+    heroImage: '/image9.jpeg',
+    heroImagePosition: 'center 38%',
+    showcase: [
+      {
+        src: '/image7.jpeg',
+        alt: 'Salle du restaurant Les Komplices',
+        layout: 'lead',
+        position: 'center 32%',
+      },
+      {
+        src: '/image8.jpeg',
+        alt: 'Ambiance et détails du restaurant',
+        layout: 'portrait',
+        position: 'center 40%',
+      },
+      {
+        src: '/image9.jpeg',
+        alt: 'Lumière et atmosphère du soir',
+        layout: 'wide',
+        position: 'center 35%',
+      },
+      {
+        src: '/image10.jpeg',
+        alt: 'Table dressée chez Les Komplices',
+        layout: 'portrait',
+        position: 'center 45%',
+      },
     ],
   },
 

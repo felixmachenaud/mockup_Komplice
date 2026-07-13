@@ -120,13 +120,13 @@ export const languages = [
 export const translations = {
   fr: {
     ...shared,
-    nav: { carte: 'La Carte', restaurant: 'Le Restaurant', about: 'À propos', reserve: 'Réserver' },
+    nav: { carte: 'La Carte', restaurant: 'Le Lieu', about: 'Le Concept', reserve: 'Réserver' },
     intro: {
       label: 'Les Komplices',
       lines: ['Une cuisine sincère.', 'Des produits choisis.', 'Une table à partager.'],
       description: 'Une cuisine vivante et généreuse, imaginée autour du produit, des saisons et du plaisir d\'être ensemble.',
     },
-    marquee: ['PARIS', 'CUISINE DE SAISON', 'PRODUITS FRAIS', 'DÉJEUNER', 'DÎNER', 'RÉSERVATION CONSEILLÉE', 'TERRASSE'],
+    marquee: ['PARIS 8', 'BISTRO DE SAISON', 'BAR À VIN', 'DÉJEUNER', 'SOIR', 'VIGNERONS INDÉPENDANTS', '55 RUE DES MATHURINS'],
     dishes: [
       {
         category: 'Poisson',
@@ -159,9 +159,9 @@ export const translations = {
       cta: 'Découvrir le menu',
     },
     restaurant: {
-      title: 'Le Restaurant',
-      lines: ['Un lieu vivant.', 'Une cuisine sincère.', 'Des Komplices autour d\'une même table.'],
-      description: 'Au cœur de Paris, Les Komplices accueille ses convives dans un cadre chaleureux où chaque détail a été pensé pour sublimer le moment partagé.',
+      title: 'Le Lieu',
+      lines: ['La salle le jour.', 'La cave le soir.', 'Une adresse qui se transforme.'],
+      description: 'Comptoir, tables, lumière du soir et bouteilles sélectionnées — chaque image raconte ce que l\'on vit chez Les Komplices.',
     },
     reservation: {
       title: ['Une table', 'vous attend.'],
@@ -173,13 +173,13 @@ export const translations = {
 
   en: {
     ...shared,
-    nav: { carte: 'Menu', restaurant: 'The Restaurant', about: 'About', reserve: 'Book' },
+    nav: { carte: 'Menu', restaurant: 'The Place', about: 'The Concept', reserve: 'Book' },
     intro: {
       label: 'Les Komplices',
       lines: ['Honest cuisine.', 'Carefully chosen produce.', 'A table to share.'],
       description: 'A vibrant, generous cuisine built around quality ingredients, the seasons, and the joy of gathering together.',
     },
-    marquee: ['PARIS', 'SEASONAL CUISINE', 'FRESH PRODUCE', 'LUNCH', 'DINNER', 'RESERVATION RECOMMENDED', 'TERRACE'],
+    marquee: ['PARIS 8', 'SEASONAL BISTRO', 'WINE BAR', 'LUNCH', 'EVENING', 'INDEPENDENT WINEMAKERS', '55 RUE DES MATHURINS'],
     dishes: [
       {
         category: 'Fish',
@@ -212,9 +212,9 @@ export const translations = {
       cta: 'Discover the menu',
     },
     restaurant: {
-      title: 'The Restaurant',
-      lines: ['A living place.', 'Honest cuisine.', 'Komplices around the same table.'],
-      description: 'In the heart of Paris, Les Komplices welcomes guests in a warm setting where every detail is designed to elevate the shared moment.',
+      title: 'The Place',
+      lines: ['The room by day.', 'The cellar by evening.', 'An address that transforms.'],
+      description: 'Counter, tables, evening light and selected bottles — each image tells what it feels like to be at Les Komplices.',
     },
     reservation: {
       title: ['A table', 'awaits you.'],

@@ -18,11 +18,11 @@
 }
 
 .header--hero {
-  color: #fff;
+  color: var(--text);
 }
 
 .header--hero .nav-link::after {
-  background: #fff;
+  background: var(--text);
 }
 
 .header--scrolled,
@@ -101,6 +101,8 @@
   cursor: pointer;
   padding: 0;
   font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
 }
 
 .header__nav-btn.is-active,

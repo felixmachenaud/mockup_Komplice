@@ -1,49 +1,56 @@
 import { restaurant } from '../data/restaurantData'
 import LogoMark from './LogoMark'
+import { useLanguage } from '../context/LanguageContext'
+import { ContainerScroll } from './ui/ContainerScrollAnimation'
 import './Hero.css'
 
-export default function Hero({ scrollProgress }) {
-  const imageScale = 1 + scrollProgress * 0.08
-  const titleOpacity = 1 - scrollProgress * 1.4
-  const titleY = scrollProgress * -60
-  const overlayOpacity = 0.44 + scrollProgress * 0.35
+export default function Hero({ onOpenCarte, onOpenBooking }) {
+  const { t } = useLanguage()
 
   return (
-    <section className="hero" aria-label="Accueil">
-      <div className="hero__sticky">
-        <div
-          className="hero__media"
-          style={{ transform: `scale(${imageScale})` }}
-        >
-          <img
-            src={restaurant.heroImage}
-            alt="Intérieur du restaurant Les Komplices"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-          />
-          <div
-            className="hero__overlay"
-            style={{ opacity: overlayOpacity }}
-            aria-hidden="true"
-          />
+    <section className="hero hero--landing" aria-label="Accueil">
+      <div className="hero__landing">
+        <div className="hero__logo-wrap">
+          <LogoMark variant="landing" animate />
         </div>
 
-        <div className="hero__content">
-          <div
-            className="hero__brand"
-            style={{
-              opacity: Math.max(titleOpacity, 0),
-              transform: `translateY(calc(-6vh + ${titleY}px))`,
-            }}
-          >
+        <div className="hero__building">
+          <ContainerScroll
+          titleComponent={
             <h1 className="hero__title">Les Komplices</h1>
-            <LogoMark variant="hero" />
-          </div>
+          }
+          middleComponent={
+            <div className="hero__cta-row">
+              <button
+                type="button"
+                className="hero__cta hero__cta--dark"
+                onClick={onOpenCarte}
+              >
+                {t.hero.ctaMenu}
+              </button>
+              <button
+                type="button"
+                className="hero__cta hero__cta--light"
+                onClick={onOpenBooking}
+              >
+                {t.hero.ctaBook}
+              </button>
+            </div>
+          }
+          >
+            <img
+              src={restaurant.heroImage}
+              alt="Façade du restaurant Les Komplices, 55 Rue des Mathurins, Paris 8e"
+              width={1486}
+              height={1059}
+              fetchPriority="high"
+              draggable={false}
+            />
+          </ContainerScroll>
+
+          <p className="hero__address">55 Rue des Mathurins, Paris</p>
         </div>
       </div>
-
-      <div className="hero__spacer" aria-hidden="true" />
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { translations, defaultLang, languages } from '../i18n/translations'
+import { getConversion } from '../i18n/conversion'
 
 const LanguageContext = createContext(null)
 
@@ -23,7 +24,10 @@ export function LanguageProvider({ children }) {
     () => ({
       lang,
       setLang,
-      t: translations[lang] || translations[defaultLang],
+      t: {
+        ...(translations[lang] || translations[defaultLang]),
+        ...getConversion(lang),
+      },
       languages,
     }),
     [lang],

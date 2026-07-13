@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import LanguageSwitcher from './LanguageSwitcher'
-import MenuSubBar from './MenuSubBar'
 import BookingSubBar from './BookingSubBar'
 import LogoMark from './LogoMark'
 import './Header.css'
@@ -11,15 +10,12 @@ export default function Header({
   carteOpen,
   bookingOpen,
   onCarteToggle,
-  onCarteClose,
   onBookingToggle,
   onBookingClose,
-  onMenuSelect,
 }) {
   const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [mobileCarteOpen, setMobileCarteOpen] = useState(false)
 
   useEffect(() => {
     let ticking = false
@@ -60,12 +56,6 @@ export default function Header({
     .filter(Boolean)
     .join(' ')
 
-  const handleMobileMenuSelect = (menuId) => {
-    setMobileOpen(false)
-    setMobileCarteOpen(false)
-    onMenuSelect(menuId)
-  }
-
   return (
     <div className="site-header">
       <header className={headerClass}>
@@ -84,16 +74,15 @@ export default function Header({
             >
               {t.nav.carte}
             </button>
+            <a href="#concept" className="nav-link">
+              {t.nav.about}
+            </a>
             <a href="#restaurant" className="nav-link">
               {t.nav.restaurant}
-            </a>
-            <a href="#intro" className="nav-link">
-              {t.nav.about}
             </a>
           </nav>
 
           <div className="header__actions">
-            <LanguageSwitcher variant="desktop" />
             <button
               type="button"
               className={`header__cta nav-link header__cta-btn ${bookingOpen ? 'is-active' : ''}`}
@@ -102,6 +91,7 @@ export default function Header({
             >
               {t.nav.reserve}
             </button>
+            <LanguageSwitcher variant="desktop" />
           </div>
 
           <button
@@ -117,12 +107,6 @@ export default function Header({
         </div>
       </header>
 
-      <MenuSubBar
-        isOpen={carteOpen}
-        onSelect={onMenuSelect}
-        onClose={onCarteClose}
-      />
-
       <BookingSubBar
         isOpen={bookingOpen}
         onClose={onBookingClose}
@@ -130,34 +114,16 @@ export default function Header({
 
       <div className={`header__mobile ${mobileOpen ? 'is-open' : ''}`} aria-hidden={!mobileOpen}>
         <nav aria-label="Navigation mobile">
-          <div className="header__mobile-carte">
-            <button
-              type="button"
-              className="header__mobile-link"
-              onClick={() => setMobileCarteOpen(!mobileCarteOpen)}
-              aria-expanded={mobileCarteOpen}
-            >
-              {t.nav.carte}
-            </button>
-            {mobileCarteOpen && (
-              <div className="header__mobile-submenu">
-                <button
-                  type="button"
-                  className="header__mobile-sublink"
-                  onClick={() => handleMobileMenuSelect('lunch')}
-                >
-                  {t.mobileMenu.lunch}
-                </button>
-                <button
-                  type="button"
-                  className="header__mobile-sublink"
-                  onClick={() => handleMobileMenuSelect('dinner')}
-                >
-                  {t.mobileMenu.dinner}
-                </button>
-              </div>
-            )}
-          </div>
+          <button
+            type="button"
+            className="header__mobile-link"
+            onClick={() => {
+              setMobileOpen(false)
+              onCarteToggle()
+            }}
+          >
+            {t.nav.carte}
+          </button>
           <a
             href="#restaurant"
             className="header__mobile-link"
@@ -166,7 +132,7 @@ export default function Header({
             {t.nav.restaurant}
           </a>
           <a
-            href="#intro"
+            href="#concept"
             className="header__mobile-link"
             onClick={() => setMobileOpen(false)}
           >

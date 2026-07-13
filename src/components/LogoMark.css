@@ -28,6 +28,32 @@
   stroke-linejoin: round;
 }
 
+.logo-mark--landing {
+  height: clamp(6.3rem, 18.2vw, 10.5rem);
+  aspect-ratio: 1018 / 940;
+}
+
+.logo-mark--landing .logo-mark__fill {
+  filter: brightness(0);
+  opacity: 1;
+}
+
+.logo-mark--landing .logo-mark__stroke {
+  display: none;
+  stroke: var(--text);
+}
+
+.logo-mark--landing.logo-mark--animating .logo-mark__stroke {
+  display: block;
+}
+
+.logo-mark--landing.logo-mark--animating .logo-mark__fill {
+  filter: brightness(0);
+  opacity: 0;
+  animation: logo-fill-in 0.55s ease forwards;
+  animation-delay: calc(var(--logo-draw-duration, 2800ms) - 0.35s);
+}
+
 .logo-mark--hero {
   height: clamp(7.7rem, 22.4vw, 18.2rem);
   aspect-ratio: 1018 / 940;
@@ -44,7 +70,7 @@
 }
 
 .header--hero .logo-mark--header .logo-mark__fill {
-  filter: none;
+  filter: brightness(0);
 }
 
 .logo-mark--drawn .logo-mark__fill {

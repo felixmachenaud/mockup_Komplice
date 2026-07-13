@@ -8,6 +8,12 @@ main {
   position: relative;
 }
 
+@media (max-width: 900px) {
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .dishes {
   padding-top: clamp(2rem, 4vw, 4rem);
 }

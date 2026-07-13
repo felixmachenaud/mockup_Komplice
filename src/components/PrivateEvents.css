@@ -1,0 +1,66 @@
+.private-events {
+  position: relative;
+  z-index: 1;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.private-events__inner {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.private-events__content {
+  max-width: 36rem;
+}
+
+.private-events__content .label {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.private-events__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.private-events__text {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.private-events__capacity {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.private-events__formats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.private-events__formats li {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+}
+
+.private-events__cta {
+  margin-top: 0.5rem;
+}

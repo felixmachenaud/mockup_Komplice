@@ -26,7 +26,7 @@
 }
 
 .dish__name {
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.6rem, 5.4vw, 4.2rem);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -45,7 +45,7 @@
 }
 
 .dish__description {
-  font-size: 1.125rem;
+  font-size: 1.35rem;
   line-height: 1.75;
   color: #524d47;
   margin-bottom: 2.5rem;
@@ -66,18 +66,18 @@
 }
 
 .dish__ingredients {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.9;
   color: var(--text);
 }
 
 .dish__allergens {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--muted);
 }
 
 .dish__price {
-  font-size: 1.125rem;
+  font-size: 1.35rem;
   font-weight: 400;
   letter-spacing: 0.04em;
 }
