@@ -45,13 +45,15 @@
 
 .logo-mark--landing.logo-mark--animating .logo-mark__stroke {
   display: block;
+  /* Landing : le trait fin reste visible à la fin, pas de fondu vers le logo plein */
+  animation: logo-draw var(--logo-draw-duration, 2800ms) ease-in-out forwards;
+  animation-delay: 0s;
 }
 
 .logo-mark--landing.logo-mark--animating .logo-mark__fill {
   filter: brightness(0);
   opacity: 0;
-  animation: logo-fill-in 0.55s ease forwards;
-  animation-delay: calc(var(--logo-draw-duration, 2800ms) - 0.35s);
+  animation: none;
 }
 
 .logo-mark--hero {
@@ -141,5 +143,17 @@
   .logo-mark--animating .logo-mark__fill {
     animation: none;
     opacity: 1;
+  }
+
+  /* Landing : le logo final est le trait fin, on l'affiche directement dessiné */
+  .logo-mark--landing.logo-mark--animating .logo-mark__stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .logo-mark--landing.logo-mark--animating .logo-mark__fill {
+    animation: none;
+    opacity: 0;
   }
 }
